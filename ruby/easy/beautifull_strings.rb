@@ -1,3 +1,5 @@
+#author: Siganov Ilya
+#date: 16.01.2014
 <<-DOC
 BEAUTIFUL STRINGS
 CHALLENGE DESCRIPTION:

@@ -20,10 +20,10 @@ fname = ARGV.first
 raise 'File name not specified' if fname.nil? || fname.empty?
 
 res = File.readlines(fname).map do |line|
-	next if line.strip.empty?
-	line.strip.split(/ /).reverse.join(' ')
+  next if line.strip.empty?
+  line.strip.split(/ /).reverse.join(' ')
 end
 
 res.each do |line|
-	puts line unless line.nil?
+  puts line unless line.nil?
 end

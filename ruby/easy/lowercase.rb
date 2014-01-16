@@ -21,9 +21,9 @@ fname = ARGV.first
 raise 'File name not specified' if fname.nil? || fname.empty?
 
 res = File.readlines(fname).map do |line|
-	line.downcase
+  line.downcase
 end
 
 res.each do |line|
-	puts line
+  puts line
 end
