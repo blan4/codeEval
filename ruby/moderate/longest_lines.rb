@@ -1,3 +1,5 @@
+#author: Siganov Ilya
+#date: 17.01.2014
 <<-DOC
 LONGEST LINES
 CHALLENGE DESCRIPTION:
