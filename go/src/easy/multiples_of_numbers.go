@@ -1,29 +1,24 @@
 //author: Siganov Ilya
-//date: 30.01.2014
+//date: 31.01.2014
 package main
 
 import (
-	"bufio"
-	"fmt"
-	"io"
-	"log"
 	"os"
-	"strconv"
+	"log"
+	"bufio"
+	"io"
+	"fmt"
 	"strings"
+	"strconv"
 )
 
-func module(n int, m int) int {
-	return n - int(n/m)*m
-}
-
-func main() {
-	path := os.Args[1]
+func read_lines(path string) []string {
+	var lines []string
 	file, error := os.Open(path)
 	if error != nil {
 		log.Fatal(error)
 	}
 	defer file.Close()
-
 	reader := bufio.NewReader(file)
 	for {
 		line, isPrefix, err := reader.ReadLine()
@@ -36,13 +31,24 @@ func main() {
 		if isPrefix {
 			log.Fatal("Error: Unexpected long line reading", file.Name())
 		}
+		lines = append(lines, string(line))
+	}
+	return lines
+}
 
+func task(x int, n int) int {
+	for n < x {
+		n <<= 1
+	}
+	return n
+}
+
+func main() {
+	lines := read_lines(os.Args[1])
+	for i, line := range lines {
 		numbers := strings.Split(string(line), ",")
-		n, e := strconv.Atoi(numbers[0])
-		m, e := strconv.Atoi(numbers[1])
-		if e != nil {
-			fmt.Println(0)
-		}
-		fmt.Println(module(n, m))
+		x, _ := strconv.Atoi(numbers[0])
+		n, _ := strconv.Atoi(numbers[1])
+		fmt.Println(task(x, n))
 	}
 }
